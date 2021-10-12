@@ -24,7 +24,8 @@ $(document).ready(function(){
         }
 
         if(soma == numero_3_soma){
-            $('body > div > div.tabela > table > tbody > tr.linha_'+numero_1_soma+' > td.coluna_'+numero_2_soma).attr('class', 'table-danger');
+            $('body > div > div.tabela > table > tbody > tr.linha_'+numero_1_soma+' > td.coluna_'+numero_2_soma).attr('class', 'coluna_'+numero_2_soma+' table-danger');
+            $('body > div > div.tabela > table > tbody > tr.linha_'+numero_1_soma+' > td.coluna_'+numero_2_soma).text(soma);
         } else {
             alert("errou");
         }
