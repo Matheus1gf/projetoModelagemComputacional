@@ -1,33 +1,81 @@
 $(document).ready(function(){
-    $(".button_multi").click(function(){
-        var numero_1 = parseInt($("#numero_1").val());
-        var numero_2 = parseInt($("#numero_2").val());
-        var numero_3 = parseInt($("#numero_3").val());
-        if(numero_1 * numero_2 == numero_3){
-            //alert("acertou");
-            for (let index = 1; index < numero_1+1; index++) {
-                $("tr").eq(index).children('td').slice(1, numero_2+1).addClass("black");
-            }
-        } else {
-            alert("errou");
-        }
-    });
+    $(".button_multiplicacao").click(function(){
+        var numero_1_multiplicacao = parseInt($("#numero_1_multiplicacao").val());
+        var numero_2_multiplicacao = parseInt($("#numero_2_multiplicacao").val());
+        var numero_3_multiplicacao = parseInt($("#numero_3_multiplicacao").val());
+        var multiplicacao = numero_1_multiplicacao * numero_2_multiplicacao;
 
-
-    $(".button_soma").click(function(){
-        var numero_1_soma = parseInt($("#numero_1_soma").val());
-        var numero_2_soma = parseInt($("#numero_2_soma").val());
-        var numero_3_soma = parseInt($("#numero_3_soma").val());
-        var soma = numero_1_soma + numero_2_soma;
-        if(numero_1_soma > 5 || numero_2_soma > 5){
+        if(numero_1_multiplicacao > 5 || numero_2_multiplicacao > 5){
             alert("DIGITE UM NÚMERO ENTRE 1 E 5");
         }
 
-        if(soma == numero_3_soma){
-            $('body > div > div.tabela > table > tbody > tr.linha_'+numero_1_soma+' > td.coluna_'+numero_2_soma).attr('class', 'coluna_'+numero_2_soma+' table-danger');
-            $('body > div > div.tabela > table > tbody > tr.linha_'+numero_1_soma+' > td.coluna_'+numero_2_soma).text(soma);
+        if(multiplicacao == numero_3_multiplicacao){
+            $('#multiplicacao > table > tbody > tr.linha_'+numero_1_multiplicacao+'_multiplicacao > td.coluna_'+numero_2_multiplicacao+'_multiplicacao').attr('class', 'coluna_'+numero_2_multiplicacao+'_multiplicacao table-danger');
+            $('#multiplicacao > table > tbody > tr.linha_'+numero_1_multiplicacao+'_multiplicacao > td.coluna_'+numero_2_multiplicacao+'_multiplicacao').text(multiplicacao);
         } else {
             alert("errou");
         }
     });
-  });
+
+    $(".button_divisao").click(function(){
+        var numero_1_divisao = parseInt($("#numero_1_divisao").val());
+        var numero_2_divisao = parseInt($("#numero_2_divisao").val());
+        var numero_3_divisao = parseInt($("#numero_3_divisao").val());
+        var divisao = numero_1_divisao * numero_2_divisao;
+        var aleatorio1 = Math.floor(Math.random() * 5 + 1);
+        var aleatorio2 =  Math.floor(Math.random() * 5 + 1) * aleatorio1;
+
+        if(numero_1_fatoracao > 5 || numero_2_fatoracao > 5){
+            alert("DIGITE UM NÚMERO ENTRE 1 E 5");
+        }
+
+        if(divisao == parseInt(numero_3_divisao)){
+            $('#divisao > table > tbody > tr.linha_'+numero_1_divisao+'_divisao > td.coluna_'+numero_2_divisao+'_divisao').attr('class', 'coluna_'+numero_2_divisao+'_divisao table-danger');
+            $('#divisao > table > tbody > tr.linha_'+numero_1_divisao+'_divisao > td.coluna_'+numero_2_divisao+'_divisao').text(divisao);
+
+            $('#numero_2_divisao').val(aleatorio1);
+            $('#numero_3_divisao').val(aleatorio2);
+        } else {
+            alert("errou");
+        }
+    });
+
+    $(".button_fatoracao").click(function(){
+        var numero_1_fatoracao = parseInt($("#numero_1_fatoracao").val());
+        var numero_2_fatoracao = parseInt($("#numero_2_fatoracao").val());
+        var numero_3_fatoracao = parseInt($("#numero_3_fatoracao").val());
+        var fatoracao = numero_1_fatoracao * numero_2_fatoracao;
+        var aleatorio1 = Math.floor(Math.random() * 5 + 1);
+        var aleatorio2 =  Math.floor(Math.random() * 5 + 1) * aleatorio1;
+        var armazenamento = [];
+        var valor = armazenamento.indexOf(aleatorio2) ? aleatorio2 : Math.floor(Math.random() * 5 + 1) * aleatorio1;
+
+        if(numero_1_fatoracao > 5 || numero_2_fatoracao > 5){
+            alert("DIGITE UM NÚMERO ENTRE 1 E 5");
+        }
+
+        if(fatoracao == numero_3_fatoracao && (numero_1_fatoracao <= 5 && numero_2_fatoracao <= 5)){
+            $('#fatoracao > table > tbody > tr.linha_'+numero_1_fatoracao+'_fatoracao > td.coluna_'+numero_2_fatoracao+'_fatoracao').attr('class', 'coluna_'+numero_2_fatoracao+'_fatoracao table-danger');
+            $('#fatoracao > table > tbody > tr.linha_'+numero_1_fatoracao+'_fatoracao > td.coluna_'+numero_2_fatoracao+'_fatoracao').text(fatoracao);
+            $('#numero_3_fatoracao').val(valor);
+        } else {
+            alert("errou");
+        }
+
+        armazenamento.push(valor);
+    });
+
+    $("#divisao-tab").click(function(){
+        var aleatorio1 =  Math.floor(Math.random() * 5 + 1);
+        $('#numero_2_divisao').val(aleatorio1);
+
+        var aleatorio2 =  Math.floor(Math.random() * 5 + 1) * aleatorio1;
+        $('#numero_3_divisao').val(aleatorio2);
+    });
+
+    $("#fatoracao-tab").click(function(){
+        var aleatorio1 =  Math.floor(Math.random() * 5 + 1);
+        var aleatorio2 =  Math.floor(Math.random() * 5 + 1) * aleatorio1;
+        $('#numero_3_fatoracao').val(aleatorio2);
+    });
+});
