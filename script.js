@@ -65,7 +65,21 @@ $(document).ready(function(){
         armazenamento.push(valor);
     });
 
+    function iniciar(){
+        $('#numero_1_multiplicacao').val('?');
+        $('#numero_2_multiplicacao').val('?');
+        var aleatorio1 =  Math.floor(Math.random() * 5 + 1);
+        var aleatorio2 =  Math.floor(Math.random() * 5 + 1) * aleatorio1;
+        $('#numero_3_multiplicacao').val(aleatorio2);
+    }
+
+    iniciar();
+
+    $("#multiplicacao-tab").click(iniciar);
+
     $("#divisao-tab").click(function(){
+        $('#numero_1_divisao').val('?');
+
         var aleatorio1 =  Math.floor(Math.random() * 5 + 1);
         $('#numero_2_divisao').val(aleatorio1);
 
@@ -74,6 +88,8 @@ $(document).ready(function(){
     });
 
     $("#fatoracao-tab").click(function(){
+        $('#numero_1_fatoracao').val('?');
+        $('#numero_2_fatoracao').val('?');
         var aleatorio1 =  Math.floor(Math.random() * 5 + 1);
         var aleatorio2 =  Math.floor(Math.random() * 5 + 1) * aleatorio1;
         $('#numero_3_fatoracao').val(aleatorio2);
