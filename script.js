@@ -5,6 +5,12 @@ $(document).ready(function(){
         var numero_3_multiplicacao = parseInt($("#numero_3_multiplicacao").val());
         var multiplicacao = numero_1_multiplicacao * numero_2_multiplicacao;
 
+        $('#numero_3_multiplicacao').val('?');
+        var aleatorio1 =  Math.floor(Math.random() * 5 + 1);
+        var aleatorio2 =  Math.floor(Math.random() * 5 + 1);
+        $('#numero_1_multiplicacao').val(aleatorio1);
+        $('#numero_2_multiplicacao').val(aleatorio2);
+
         if(numero_1_multiplicacao > 5 || numero_2_multiplicacao > 5){
             alert("DIGITE UM NÚMERO ENTRE 1 E 5");
         }
@@ -66,11 +72,11 @@ $(document).ready(function(){
     });
 
     function iniciar(){
-        $('#numero_1_multiplicacao').val('?');
-        $('#numero_2_multiplicacao').val('?');
+        $('#numero_3_multiplicacao').val('?');
         var aleatorio1 =  Math.floor(Math.random() * 5 + 1);
-        var aleatorio2 =  Math.floor(Math.random() * 5 + 1) * aleatorio1;
-        $('#numero_3_multiplicacao').val(aleatorio2);
+        var aleatorio2 =  Math.floor(Math.random() * 5 + 1);
+        $('#numero_1_multiplicacao').val(aleatorio1);
+        $('#numero_2_multiplicacao').val(aleatorio2);
     }
 
     iniciar();
